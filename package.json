@@ -1,6 +1,6 @@
 {
-  "name": "@nice-winter/template-ts",
-  "description": "A Node.js template with TypeScript and ES Module support.",
+  "name": "@nice-winter/patcher",
+  "description": "A patch bundle.",
   "version": "1.0.0",
   "private": true,
   "type": "module",
