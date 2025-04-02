@@ -9,7 +9,7 @@ on:
 
 jobs:
   release:
-    if: github.repository == 'nice-winter/template-ts'
+    if: github.repository == 'nice-winter/patcher'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,4 +21,4 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           body: |
-            Please refer to [CHANGELOG.md](https://github.com/nice-winter/template-ts/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
+            Please refer to [CHANGELOG.md](https://github.com/nice-winter/patcher/blob/${{ github.ref_name }}/CHANGELOG.md) for details.

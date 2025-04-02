@@ -36,6 +36,9 @@
     ]
   },
   "author": "nice-winter",
+  "repository": {
+    "url": "https://github.com/nice-winter/patcher"
+  },
   "license": "MIT",
   "dependencies": {
     "@nuxt/ui-pro": "^3.0.2",
