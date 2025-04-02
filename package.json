@@ -2,7 +2,7 @@
   "name": "@nice-winter/patcher",
   "description": "A patch bundle.",
   "version": "1.0.1",
-  "private": true,
+  "private": false,
   "type": "module",
   "engines": {
     "node": ">=22.0.0"
