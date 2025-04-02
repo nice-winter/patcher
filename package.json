@@ -42,7 +42,7 @@
   },
   "author": "nice-winter",
   "repository": {
-    "url": "https://github.com/nice-winter/patcher"
+    "url": "git+https://github.com/nice-winter/patcher.git"
   },
   "license": "MIT",
   "peerDependencies": {
