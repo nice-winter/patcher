@@ -17,18 +17,17 @@ import type { Plugin } from 'vite'
  * @param nuxtUIProVitePlugin The original Vite plugin for Nuxt UI Pro.
  */
 const nuxtUIProPatcher = (nuxtUIProVitePlugin: Plugin | Plugin[]) => {
-  if (Array.isArray(nuxtUIProVitePlugin)) {
-    if (
-      nuxtUIProVitePlugin.filter((item) => item.name.startsWith('nuxt:ui'))
-        .length > -1
-    ) {
-      nuxtUIProVitePlugin.splice(
-        nuxtUIProVitePlugin.findIndex(
-          (item) => item.name === 'nuxt:ui-pro:license'
-        ),
-        1
-      )
-    }
+  if (
+    Array.isArray(nuxtUIProVitePlugin) &&
+    nuxtUIProVitePlugin.filter((item) => item.name.startsWith('nuxt:ui'))
+      .length > 0
+  ) {
+    nuxtUIProVitePlugin.splice(
+      nuxtUIProVitePlugin.findIndex(
+        (item) => item.name === 'nuxt:ui-pro:license'
+      ),
+      1
+    )
   } else {
     throw new TypeError('This is not a valid Nuxt UI plugin!')
   }
