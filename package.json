@@ -37,7 +37,10 @@
   },
   "author": "nice-winter",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "@nuxt/ui-pro": "^3.0.2",
+    "vite": "^6.2.4"
+  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.3",
     "@rollup/plugin-json": "^6.1.0",
