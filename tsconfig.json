@@ -4,7 +4,6 @@
   "compilerOptions": {
     "noEmit": false,
 
-    "outDir": "dist",
     "rootDir": ".",
     "baseUrl": ".",
 
@@ -28,11 +27,6 @@
     "paths": { "@/*": ["src/*"] }
   },
 
-  "include": [
-    "src/**/*",
-    "eslint.config.*",
-    "rollup.config.*",
-    "prettier.config.*"
-  ],
+  "include": ["src/**/*", "tsup.config.*", "prettier.config.*"],
   "exclude": ["node_modules", "dist"]
 }

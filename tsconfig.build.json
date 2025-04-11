@@ -2,15 +2,13 @@
   "extends": ["./tsconfig.json"],
   "compilerOptions": {
     "rootDir": "src",
-    "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true
+    "outDir": "dist"
   },
   "include": ["src/**/*"],
   "exclude": [
     "node_modules",
     "dist",
-    "rollup.config.*",
+    "tsup.config.*",
     "**/__tests__",
     "**/*.test.ts",
     "**/vitest.config.ts",
