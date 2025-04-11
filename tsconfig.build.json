@@ -9,6 +9,7 @@
     "node_modules",
     "dist",
     "tsup.config.*",
+    "prettier.config.*",
     "**/__tests__",
     "**/*.test.ts",
     "**/vitest.config.ts",
