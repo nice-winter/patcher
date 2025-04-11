@@ -11,22 +11,31 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [22]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set node version to 22
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node }}
 
-      - name: Install deps
-        run: npm ci
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found, using 'npm ci'"
+            npm ci
+          else
+            echo "package-lock.json not found, using 'npm install'"
+            npm install
+          fi
 
-      - name: Test
+      - name: Run test
         run: npm test
 
-      - name: Build
+      - name: Run build
         run: npm run build
 
       - name: Dry run publish
@@ -40,14 +49,18 @@ jobs:
           retention-days: 1
 
   publish:
+    env:
+      CHECK_NPM_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
+    strategy:
+      matrix:
+        node: [22]
     needs: build
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Download artifact
         uses: actions/download-artifact@v4
@@ -57,13 +70,14 @@ jobs:
       - name: Set npm registry url
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node }}
           registry-url: 'https://registry.npmjs.org'
 
       - name: Dry run publish
         run: npm pack -dry-run
 
       - name: Publish
+        if: ${{ env.CHECK_NPM_TOKEN == 'true'}}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npm publish . --provenance --access public

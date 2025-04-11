@@ -17,17 +17,26 @@ jobs:
     if: (github.event_name == 'push' && github.event_name != 'pull_request') || github.event_name == 'pull_request'
     env:
       PUPPETEER_SKIP_DOWNLOAD: 'true'
+    strategy:
+      matrix:
+        node: [22]
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ matrix.node }}
 
-      - name: Install deps
-        run: npm ci
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            echo "package-lock.json found, using 'npm ci'"
+            npm ci
+          else
+            echo "package-lock.json not found, using 'npm install'"
+            npm install
+          fi
 
       - name: Run test
         run: npm test
