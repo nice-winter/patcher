@@ -45,6 +45,14 @@
     "@nuxt/ui-pro": "^3.0.0",
     "vite": ">=5.0.0 <8.0.0"
   },
+  "peerDependenciesMeta": {
+    "@nuxt/ui-pro": {
+      "optional": true
+    },
+    "vite": {
+      "optional": true
+    }
+  },
   "dependencies": {
     "consola": "^3.4.2"
   },
