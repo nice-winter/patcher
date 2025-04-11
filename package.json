@@ -7,15 +7,11 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "exports": {
-    ".": {
-      "import": "./dist/index.js"
-    },
-    "./patchs/*": {
-      "import": "./dist/patchs/*.js"
-    }
+    ".": "./dist/index.js",
+    "./patches/*": "./dist/patches/*"
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",
