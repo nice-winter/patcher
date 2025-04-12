@@ -11,7 +11,8 @@
   "module": "./dist/index.js",
   "exports": {
     ".": "./dist/index.js",
-    "./patches/*": "./dist/patches/*"
+    "./@nuxt/ui-pro": "./dist/@nuxt/ui-pro/index.js",
+    "./@nuxt/ui-pro/vite": "./dist/@nuxt/ui-pro/vite/index.js"
   },
   "scripts": {
     "postinstall": "node ./scripts/postinstall.js",

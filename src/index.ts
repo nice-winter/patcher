@@ -1,4 +1,1 @@
-export {
-  nuxtUIProPatcher,
-  nuxtUIProPatcher as uiPro
-} from './patches/nuxtUIProPatcher'
+export { uiProVitePatcher, uiPro } from './@nuxt/ui-pro/vite'
