@@ -14,7 +14,6 @@ import type { Plugin } from 'vite'
 
 /**
  * Vite Plugin Patch for Nuxt UI Pro.
- *
  * @param uiProVitePlugin The original Vite plugin for Nuxt UI Pro.
  */
 const uiProVitePatcher = (uiProVitePlugin: Plugin | Plugin[]) => {
@@ -34,10 +33,13 @@ const uiProVitePatcher = (uiProVitePlugin: Plugin | Plugin[]) => {
 }
 
 /**
- * Nuxt UI Pro – Patched Vite Plugin Version
+ * Nuxt UI Pro (Patched)
  * @param options
+ * @example
+ * // import uiPro from '@nuxt/ui-pro/vite'
+ * import uiPro from '@nice-winter/patcher/@nuxt/ui-pro/vite'
  */
-const uiPro = (options?: NuxtUIProOptions) =>
+const uiPro = (options?: NuxtUIProOptions | undefined) =>
   uiProVitePatcher(uiProVite(options))
 
 export { uiPro as default, uiProVitePatcher }
