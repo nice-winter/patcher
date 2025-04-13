@@ -40,4 +40,4 @@ const uiProVitePatcher = (uiProVitePlugin: Plugin | Plugin[]) => {
 const uiPro = (options?: NuxtUIProOptions) =>
   uiProVitePatcher(uiProVite(options))
 
-export { uiProVitePatcher, uiPro }
+export { uiPro as default, uiProVitePatcher }
