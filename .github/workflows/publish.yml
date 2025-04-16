@@ -74,7 +74,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Dry run publish
-        run: npm pack -dry-run
+        run: npm publish -dry-run
 
       - name: Publish
         if: ${{ env.CHECK_NPM_TOKEN == 'true'}}
